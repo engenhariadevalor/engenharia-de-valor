@@ -1,9 +1,9 @@
 # Engenharia de Valor
 
-Welcome to the Engenharia de Valor repository!
+Bem vindo ao repositório Engenharia de Valor.
 
-This repository aims to provide valuable resources and tools for engineers and professionals in the field of value engineering.
+Este repositorio visa armazenar ferramentas da area de engenharia.
 
-## Initial Setup
+## Configuração inicial
 
-This README file is created to establish the main branch.
+Thes arquivo README foi criardo para estabelecer a branch principal.
