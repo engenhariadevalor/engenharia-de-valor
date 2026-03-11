@@ -1,0 +1,39 @@
+{
+    "batch": {
+        "processes": [{
+            "name": "extracaoticketstenant",
+            "algorithmName": "extracaoticketstenant",
+            "algorithmDescription": {
+                "en-US": "Extração de tickets dos tenants.",
+                "pt-BR": "Extração de tickets dos tenants."
+            },
+            "algorithmTitle": {
+                "en-US": "Extração de Tickets",
+                "pt-BR": "Extração de Tickets"
+            },
+            "instanceProperties": {
+                "profile": "",
+                "properties": {
+                    "dockerName": "extracaoticketstenant",
+                    "instanceType": "c1.nano"
+                },
+                "preemptible": false,
+                "environments": {
+                    "PREFECT_LOGGING_HANDLERS_CONSOLE_FORMATTER": "json"
+                }
+            }
+        }
+    ]
+    },
+    "docker": [
+        {
+        "dockerName": "extracaoticketstenant",
+        "dockerTag": "0.0.1",
+        "gitBranch": "main",
+        "gitPath": "/tickets-tenant",
+        "instanceType": "c1.nano",
+        "gitDockerfileName": "Dockerfile",
+        "gitRepoUrl": "https://github.com/engenhariadevalor/engenharia-de-valor"
+        }
+    ]
+}
