@@ -115,7 +115,8 @@ SQL = """SELECT a.ticket_id,  a.assignee_name,           a.brand_name,          
        MAX(CASE WHEN b.field_id = 43287573447571 then value END) as ev_projeto_saastizado,
        MAX(CASE WHEN b.field_id = 47099212498195 then value END) as ev_valor_recorrente,
        MAX(CASE WHEN b.field_id = 47099008373267 then value END) as ev_valor_cdu,
-       MAX(CASE WHEN b.field_id = 47099218753555 then value END) as ev_valor_proposta
+       MAX(CASE WHEN b.field_id = 47099218753555 then value END) as ev_valor_proposta,
+       0 as ev_ajuste_level
      
 FROM `carol-b6f9107597e5491c9aa2.shd_totvs_engenhariacorporativa_basededadosdozendesk.zendesk_gold_tickets` a
 left join
