@@ -28,7 +28,7 @@
     "docker": [
         {
         "dockerName": "extracaoticketstenant",
-        "dockerTag": "0.0.2",
+        "dockerTag": "0.0.1",
         "gitBranch": "main",
         "gitPath": "tickets-tenant",
         "instanceType": "c1.micro",
