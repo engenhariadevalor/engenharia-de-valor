@@ -89,13 +89,13 @@ try:
     # ---- Grava o Log de processamento --- #
     conn = mysql.connector.connect(**mysql_config)
     if conn.is_connected():
-        # print("Conexão com MySQL estabelecida com sucesso!")
+        print("Conexão com MySQL estabelecida com sucesso!")
         cursor = conn.cursor()
         
-        ##SQL = "Delete From zendesk_processamento_work where 1=1"
-        ##cursor.execute(SQL)
+        SQL = "Delete From ev_clientes_dtatualiz where 1=1"
+        cursor.execute(SQL)
    
-        ##SQL = f"INSERT INTO zendesk_processamento_work (data_proc_bigquery, data_term_bigquery, qtd_registros_bigquery) VALUES ('{data_inicio}', '{data_fim}', {qtd_registros})"
+        SQL = f"INSERT INTO ev_clientes_dtatualiz (data_atualizacao, qtd_registros) VALUES ('{data_fim}', {qtd_registros})"
         cursor.execute(SQL)
         
         conn.commit()
