@@ -119,7 +119,7 @@ SQL = """SELECT a.ticket_id,  a.assignee_name,           a.brand_name,          
        0 as ev_ajuste_level
      
 FROM `carol-b6f9107597e5491c9aa2.shd_totvs_engenhariacorporativa_basededadosdozendesk.zendesk_gold_tickets` a
-left join
+left join'
 `carol-b6f9107597e5491c9aa2.shd_totvs_engenhariacorporativa_basededadosdozendesk.zendesk_gold_tickets_customfields` b
 on a.ticket_id = b.ticket_id
 Where a.group_name = 'Engenharia de Valor TOTVS' 

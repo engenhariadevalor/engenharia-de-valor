@@ -1,0 +1,5 @@
+pycarol
+pandas
+sqlalchemy
+mysql-connector-python
+cryptography
