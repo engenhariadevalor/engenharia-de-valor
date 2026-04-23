@@ -664,19 +664,6 @@ BEGIN
      -- Segmento --
 	 UPDATE zendesk_tickets_transitoria
 	    SET ev_segmento = CASE 
-	    WHEN trim(ev_segmento) = 'ev_totvs_segmento_agro'         				   THEN 'Agro'
-        WHEN trim(ev_segmento) = 'ev_totvs_segmento_construcao'                    THEN 'Construção'
-		WHEN trim(ev_segmento) = 'ev_totvs_segmento_distribuicao'                  THEN 'Distribuição'
-		WHEN trim(ev_segmento) = 'ev_totvs_segmento_educacional'                   THEN 'Educacional'
-		WHEN trim(ev_segmento) = 'ev_totvs_segmento_financial_services'            THEN 'Financial Services'
-		WHEN trim(ev_segmento) = 'ev_totvs_segmento_hospitalidade'                 THEN 'Hospitalidade'
-		WHEN trim(ev_segmento) = 'ev_totvs_segmento_juridico'                      THEN 'Jurídico'
-		WHEN trim(ev_segmento) = 'ev_totvs_segmento_logistica'                     THEN 'Logística'
-		WHEN trim(ev_segmento) = 'ev_totvs_segmento_manufatura'                    THEN 'Manufatura'
-		WHEN trim(ev_segmento) = 'ev_totvs_segmento_prestadores_de_servicos'       THEN 'Prestadores de Serviços'
-		WHEN trim(ev_segmento) = 'ev_totvs_segmento_saude'                         THEN 'Saúde'
-		WHEN trim(ev_segmento) = 'ev_totvs_segmento_setor_publico'                 THEN 'Setor Público'
-		WHEN trim(ev_segmento) = 'ev_totvs_segmento_varejo'                        THEN 'Varejo'
         WHEN trim(ev_segmento) is null    THEN '-'
 		ELSE ev_segmento
 	 END;
