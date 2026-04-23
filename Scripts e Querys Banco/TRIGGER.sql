@@ -678,7 +678,7 @@ BEGIN
 		WHEN trim(ev_segmento) = 'ev_totvs_segmento_setor_publico'                 THEN 'Setor Público'
 		WHEN trim(ev_segmento) = 'ev_totvs_segmento_varejo'                        THEN 'Varejo'
         WHEN trim(ev_segmento) is null    THEN '-'
-		ELSE ev_modelo_atendimento
+		ELSE ev_segmento
 	 END;
      
      -- Necessário atuação de outros times --
