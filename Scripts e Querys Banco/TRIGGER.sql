@@ -1100,6 +1100,9 @@ BEGIN
 	  -- Limpa a Tabela Tickets Oficial - base para Locker --
 	  Delete from ev_tickets_zendesk Where 1=1;
       
+      -- Limpa a Tabela Tickets Seguidores - base para Locker --
+	  Delete from ev_tickets_zendesk_follower Where 1=1;
+           
 	  -- Total de registros da tabela Transitoria --
 	  SELECT COUNT(*) INTO total_registros_transitoria FROM zendesk_tickets_transitoria;
 	  
@@ -1133,7 +1136,26 @@ BEGIN
 		COALESCE(CAST(NULLIF(ev_valor_cdu, '') AS DECIMAL(15,2)), 0.00),
 		COALESCE(CAST(NULLIF(ev_valor_proposta, '') AS DECIMAL(15,2)), 0.00)
 		from zendesk_tickets_transitoria;
-		
+        
+		-- INSERE OS REGISTROS NA TABELA EV_TICKETS_ZENDESK_FOLLOWER OFICIAL DA ENG DE VALOR -------
+        INSERT into ev_tickets_zendesk_follower
+		SELECT 
+			ticket_id,
+			TRIM(REPLACE(REPLACE(REPLACE(
+				SUBSTRING_INDEX(SUBSTRING_INDEX(t.follower_ids, ',', n.n), ',', -1),
+			'[', ''), ']', ''), ' ', '')) AS codigo
+		FROM 
+			ev_tickets_zendesk t
+		INNER JOIN (
+			SELECT 1 AS n UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL 
+			SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL 
+			SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9 UNION ALL SELECT 10
+		) n ON n.n <= (LENGTH(t.follower_ids) - LENGTH(REPLACE(t.follower_ids, ',', '')) + 1)
+		WHERE 
+			t.follower_ids IS NOT NULL 
+			AND t.follower_ids <> ''
+			AND t.follower_ids <> '[]';
+        
 		-- Grava tabela de controle com data atualizada --
 		Insert into ev_tickets_zendesk_dtatualiz (data_atualizacao, qtd_registros) 
 		Values(now(), total_registros_transitoria);
