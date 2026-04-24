@@ -1145,7 +1145,7 @@ BEGIN
 				SUBSTRING_INDEX(SUBSTRING_INDEX(t.follower_ids, ',', n.n), ',', -1),
 			'[', ''), ']', ''), ' ', '')) AS codigo
 		FROM 
-			ev_tickets_zendesk_transitoria t
+			zendesk_tickets_transitoria t
 		INNER JOIN (
 			SELECT 1 AS n UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL 
 			SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL 
