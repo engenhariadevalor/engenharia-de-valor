@@ -1109,7 +1109,7 @@ BEGIN
 	  -- INSERE OS REGISTROS NA TABELA EV_TICKETS_ZENDESK OFICIAL DA ENG DE VALOR -------
 	  insert into ev_tickets_zendesk
 	  select 
-		ticket_id,              			     SUBSTRING(assignee_name,1,255),         		brand_name,                	 			 		date_created,              			     date_first_assigned, 
+		ticket_id,              			     assignee_id_,                                  SUBSTRING(assignee_name,1,255),         		brand_name,                	 			 		date_created,              			     date_first_assigned, 
 		date_last_assigned,     				 date_last_comment,      			     		date_requester_update,     		 				date_solved,               			     date_status_updated,
 		date_updated,           				 description,            			     		group_name,                		 				number_changes_assignee,  			     organization_name, 
 		requester_name,         				 submitter_name,         			     		ticket_priority,           		 				ticket_form_name,          			 	 ticket_status, 

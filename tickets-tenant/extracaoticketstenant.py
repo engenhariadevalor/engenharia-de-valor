@@ -29,7 +29,7 @@ carol = Carol(
 # --- Query para buscar os Tickets na tenant Zendesk ---
 # --- Tabelas: zendesk_gold_tickets e zendesk_gold_customfields ---
 
-SQL = """SELECT a.ticket_id,  a.assignee_name,           a.brand_name,              a.date_created, 
+SQL = """SELECT a.ticket_id,  a.assignee_id_,            a.assignee_name,           a.brand_name,              a.date_created, 
        a.date_first_assigned, a.date_last_assigned,      a.date_last_comment,       a.date_requester_update,
        a.date_solved,         a.date_status_updated,     a.date_updated,            a.description, 
        a.group_name,          a.number_changes_assignee, a.organization_name,       a.requester_name,
@@ -119,12 +119,12 @@ SQL = """SELECT a.ticket_id,  a.assignee_name,           a.brand_name,          
        0 as ev_ajuste_level
      
 FROM `carol-b6f9107597e5491c9aa2.shd_totvs_engenhariacorporativa_basededadosdozendesk.zendesk_gold_tickets` a
-left join'
+left join
 `carol-b6f9107597e5491c9aa2.shd_totvs_engenhariacorporativa_basededadosdozendesk.zendesk_gold_tickets_customfields` b
 on a.ticket_id = b.ticket_id
 Where a.group_name = 'Engenharia de Valor TOTVS' 
   and a.new_api    = true
-Group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27
+Group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28
 """
 
 # ---  Query para busca de usuário do zendesk - Tabela Users ---

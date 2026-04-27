@@ -39,8 +39,14 @@ SQL = """SELECT codt,              razao_social,         cnpj,      tipo_cliente
            group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14
 """
 
+# --- Query para buscar as oportunidades na tabela  ---
+SQL_OPT = """SELECT *
+           FROM `carol-b6f9107597e5491c9aa2.shd_totvs_estrategiacomercial_engenhariavalor.PARTICIPACAO_EV`
+"""
+
 # --- Armazena o retorno da Query executada na BigQuery ---
 RetornoQuery = BQ(carol).query(SQL)  
+RetornoQueryOPT = BQ(carol).query(SQL_OPT)  
 
 #--- Printa o conteúdo ---
 #RetornoQuery.head() 
@@ -55,7 +61,8 @@ PASSWORD            = 'TotvsEvDataLake2026@!'
 HOST                = '137.131.154.156'
 DATABASE            = 'totvs_ev_datalake'
 PORT                = '3306'
-TABELA_DESTINO      = 'ev_clientes'
+TABELA_DESTINO_CLI  = 'ev_clientes'
+TABELA_DESTINO_OPT  = 'oportunidades_tenant'
 
 
 import mysql.connector
@@ -75,15 +82,22 @@ engine = create_engine(f"mysql+mysqlconnector://{USER}:{safe_password}@{HOST}:{P
 
 try:
     # --- Inserir o DataFrame no MySQL o retorno da Query / ficará na tabela ev_clientes ---
-    RetornoQuery.to_sql(TABELA_DESTINO, con=engine, if_exists='replace', index=False)
+    RetornoQuery.to_sql(TABELA_DESTINO_CLI, con=engine, if_exists='replace', index=False)
     qtd_registros = len(RetornoQuery)
+
+    # --- Inserir o DataFrame no MySQL o retorno da Query / ficará na tabela ev_oportunidades ---
+    RetornoQueryOPT.to_sql(TABELA_DESTINO_OPT, con=engine, if_exists='replace', index=False)
+    qtd_registros = len(RetornoQueryOPT)
+
 
     print("Clientes ativos")
 
     # --- Data e Hora de término do Big Query ----
     data_fim = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    print(f"Sucesso! {len(RetornoQuery)} registros inseridos na tabela {TABELA_DESTINO}.")
+    print(f"Sucesso! {len(RetornoQuery)} registros inseridos na tabela {TABELA_DESTINO_CLI}.")
+    print(f"Sucesso! {len(RetornoQueryOPT)} registros inseridos na tabela {TABELA_DESTINO_OPT}.")
+
     engine.dispose()
 
     # ---- Grava o Log de processamento --- #
