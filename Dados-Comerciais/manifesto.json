@@ -30,7 +30,7 @@
         "dockerName": "ExtracaoDadosComerciaisTenant",
         "dockerTag": "0.0.1",
         "gitBranch": "main",
-        "gitPath": "Extracao de Dados Comerciais",
+        "gitPath": "Dados-Comerciais",
         "instanceType": "c1.micro",
         "gitDockerfileName": "Dockerfile",
         "gitRepoUrl": "https://github.com/engenhariadevalor/engenharia-de-valor"
