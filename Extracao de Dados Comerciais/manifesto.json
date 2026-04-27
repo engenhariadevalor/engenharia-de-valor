@@ -4,8 +4,8 @@
             "name": "ExtracaoDadosComerciaisTenant",
             "algorithmName": "ExtracaoDadosComerciaisTenant",
             "algorithmDescription": {
-                "en-US": "Extração de Clientes da tenant.",
-                "pt-BR": "Extração de Clientes da tenant."
+                "en-US": "Extracao de Dados Comerciais.",
+                "pt-BR": "Extracao de Dados Comerciais."
             },
             "algorithmTitle": {
                 "en-US": "Extracao de Dados Comerciais",
