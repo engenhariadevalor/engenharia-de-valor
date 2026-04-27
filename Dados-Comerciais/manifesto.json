@@ -1,8 +1,8 @@
 {
     "batch": {
         "processes": [{
-            "name": "extracaodadoscomerciaistenant",
-            "algorithmName": "extracaodadoscomerciaistenant",
+            "name": "dadoscomerciaistenant",
+            "algorithmName": "dadoscomerciaistenant",
             "algorithmDescription": {
                 "en-US": "Extracao de Dados Comerciais.",
                 "pt-BR": "Extracao de Dados Comerciais."
@@ -14,8 +14,8 @@
             "instanceProperties": {
                 "profile": "",
                 "properties": {
-                    "dockerName": "extracaodadoscomerciaistenant",
-                    "instanceType": "c1.micro"
+                    "dockerName": "dadoscomerciaistenant",
+                    "instanceType": "c1.medium"
                 },
                 "preemptible": false,
                 "environments": {
@@ -27,11 +27,11 @@
     },
     "docker": [
         {
-        "dockerName": "extracaodadoscomerciaistenant",
+        "dockerName": "dadoscomerciaistenant",
         "dockerTag": "0.0.1",
         "gitBranch": "main",
         "gitPath": "Dados-Comerciais",
-        "instanceType": "c1.micro",
+        "instanceType": "c1.medium",
         "gitDockerfileName": "Dockerfile",
         "gitRepoUrl": "https://github.com/engenhariadevalor/engenharia-de-valor"
         }
