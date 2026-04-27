@@ -1,20 +1,20 @@
 {
     "batch": {
         "processes": [{
-            "name": "extracaoclientestenant",
-            "algorithmName": "extracaoclientestenant",
+            "name": "ExtracaoDadosComerciaisTenant",
+            "algorithmName": "ExtracaoDadosComerciaisTenant",
             "algorithmDescription": {
                 "en-US": "Extração de Clientes da tenant.",
                 "pt-BR": "Extração de Clientes da tenant."
             },
             "algorithmTitle": {
-                "en-US": "Extração de Clientes",
-                "pt-BR": "Extração de Clientes"
+                "en-US": "Extracao de Dados Comerciais",
+                "pt-BR": "Extracao de Dados Comerciais"
             },
             "instanceProperties": {
                 "profile": "",
                 "properties": {
-                    "dockerName": "extracaoclientestenant",
+                    "dockerName": "ExtracaoDadosComerciaisTenant",
                     "instanceType": "c1.micro"
                 },
                 "preemptible": false,
@@ -27,10 +27,10 @@
     },
     "docker": [
         {
-        "dockerName": "extracaoclientestenant",
+        "dockerName": "ExtracaoDadosComerciaisTenant",
         "dockerTag": "0.0.1",
         "gitBranch": "main",
-        "gitPath": "extracao-clientes",
+        "gitPath": "Extracao de Dados Comerciais",
         "instanceType": "c1.micro",
         "gitDockerfileName": "Dockerfile",
         "gitRepoUrl": "https://github.com/engenhariadevalor/engenharia-de-valor"
