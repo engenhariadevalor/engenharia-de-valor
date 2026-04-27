@@ -1,8 +1,8 @@
 {
     "batch": {
         "processes": [{
-            "name": "ExtracaoDadosComerciaisTenant",
-            "algorithmName": "ExtracaoDadosComerciaisTenant",
+            "name": "extracaodadoscomerciaistenant",
+            "algorithmName": "extracaodadoscomerciaistenant",
             "algorithmDescription": {
                 "en-US": "Extracao de Dados Comerciais.",
                 "pt-BR": "Extracao de Dados Comerciais."
@@ -14,7 +14,7 @@
             "instanceProperties": {
                 "profile": "",
                 "properties": {
-                    "dockerName": "ExtracaoDadosComerciaisTenant",
+                    "dockerName": "extracaodadoscomerciaistenant",
                     "instanceType": "c1.micro"
                 },
                 "preemptible": false,
@@ -27,7 +27,7 @@
     },
     "docker": [
         {
-        "dockerName": "ExtracaoDadosComerciaisTenant",
+        "dockerName": "extracaodadoscomerciaistenant",
         "dockerTag": "0.0.1",
         "gitBranch": "main",
         "gitPath": "Dados-Comerciais",
