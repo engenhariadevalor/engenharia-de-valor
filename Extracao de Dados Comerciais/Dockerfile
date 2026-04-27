@@ -10,6 +10,6 @@ COPY . /app
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN chmod +x /app/extracaoclientestenant.py
+RUN chmod +x /app/ExtracaoDadosComerciaisTenant.py
 
-ENTRYPOINT ["python", "extracaoclientestenant.py"]
+ENTRYPOINT ["python", "ExtracaoDadosComerciaisTenant.py"]
