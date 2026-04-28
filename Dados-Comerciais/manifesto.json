@@ -30,7 +30,7 @@
         "dockerName": "dadoscomerciaistenant",
         "dockerTag": "0.0.1",
         "gitBranch": "main",
-        "gitPath": "Dados-Comerciais",
+        "gitPath": "dados-comerciais",
         "instanceType": "c1.medium",
         "gitDockerfileName": "Dockerfile",
         "gitRepoUrl": "https://github.com/engenhariadevalor/engenharia-de-valor"
