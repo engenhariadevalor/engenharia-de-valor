@@ -31,9 +31,6 @@ BEGIN
     SET time_zone = '-03:00';
     SET SQL_SAFE_UPDATES = 0;
     
-    -- Elimina registros da Tabela transitoria que não forem de arquitetos da Engenharia de valor --
-    --- Delete from oportunidades_transitoria Where UPPER(ev_catalogo_level1) <> 'ENGENHARIA DE VALOR TOTVS';
-    
     -- Quantidade de registros da tabela OPORTUNIDADES_tenant --
     -- Tabela original vinda da Tenant e carregada via Script --
     SELECT COUNT(*) INTO total_registros_tenant FROM oportunidades_tenant;
@@ -45,6 +42,21 @@ BEGIN
     -- Campos após o Select *, se referem a campos calculados
     INSERT INTO oportunidades_transitoria
     select *,0,0,0,'' from oportunidades_tenant;
+    
+    -- Elimina as oportunidades que não forem do time de Eng de Valor, conforme a tabela EV_TIME --
+    DELETE FROM oportunidades_transitoria
+     WHERE NOT EXISTS (
+           SELECT 1 
+             FROM ev_time
+            WHERE trim(ev_time.nome) = trim(oportunidades_transitoria.nome_ev)
+     );
+     
+     -- Atualiza o campo equipe_fasttrack, considerando propostas que sejam do time FAST --
+	 UPDATE oportunidades_transitoria, ev_time
+	    SET oportunidades_transitoria.equipe_fasttrack = 'SIM'
+	  WHERE trim(oportunidades_transitoria.nome_ev) = trim(ev_time.nome)
+	    AND oportunidades_transitoria.data_inclusao >= ev_time.data_entrada_fasttrack
+	    AND (oportunidades_transitoria.data_inclusao <= ev_time.data_saida_fasttrack OR ev_time.data_saida_fasttrack IS NULL);
       
 	-- Ajustes diversos na tabela transitoria --
     
@@ -88,7 +100,7 @@ BEGIN
 	-- INSERE OS REGISTROS NA TABELA EV_OPORTUNIDADES OFICIAL DA ENG DE VALOR -------
 	insert into ev_oportunidades
 	select *
-	from oportunidades_transitoria;
+	  from oportunidades_transitoria;
         
 	-- Grava tabela de controle com data atualizada --
 	insert into ev_oportunidades_dtatualiz (data_atualizacao, qtd_registros) 

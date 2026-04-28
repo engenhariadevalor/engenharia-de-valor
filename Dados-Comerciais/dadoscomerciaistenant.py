@@ -89,9 +89,6 @@ try:
     RetornoQueryOPT.to_sql(TABELA_DESTINO_OPT, con=engine, if_exists='replace', index=False)
     qtd_registros = len(RetornoQueryOPT)
 
-
-    print("Clientes ativos")
-
     # --- Data e Hora de término do Big Query ----
     data_fim = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -110,6 +107,12 @@ try:
         cursor.execute(SQL)
    
         SQL = f"INSERT INTO ev_clientes_dtatualiz (data_atualizacao, qtd_registros) VALUES ('{data_fim}', {qtd_registros})"
+        cursor.execute(SQL)
+
+        SQL = "Delete From oportunidades_processamento_work where 1=1"
+        cursor.execute(SQL)
+   
+        SQL = f"INSERT INTO oportunidades_processamento_work (data_proc_bigquery, data_term_bigquery, qtd_registros_bigquery) VALUES ('{data_inicio}', '{data_fim}', {qtd_registros})"
         cursor.execute(SQL)
         
         conn.commit()

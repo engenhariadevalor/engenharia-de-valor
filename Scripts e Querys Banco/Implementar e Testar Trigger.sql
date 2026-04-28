@@ -5,6 +5,7 @@ SET SQL_SAFE_UPDATES = 0;
 
 -- Limpa as tabelas para teste --
 DROP TRIGGER IF EXISTS trigger_zendesk_tickets_transitoria;
+DROP TRIGGER IF EXISTS trigger_comercial_transitoria;
 delete from zendesk_processamento_work;
 delete from ev_tickets_zendesk_dtatualiz;
 
