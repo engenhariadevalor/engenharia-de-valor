@@ -15,7 +15,7 @@
                 "profile": "",
                 "properties": {
                     "dockerName": "extracaoticketstenant",
-                    "instanceType": "c1.micro"
+                    "instanceType": "c1.medium"
                 },
                 "preemptible": false,
                 "environments": {
@@ -31,7 +31,7 @@
         "dockerTag": "0.0.1",
         "gitBranch": "main",
         "gitPath": "Tickets-Tenant",
-        "instanceType": "c1.micro",
+        "instanceType": "c1.medium",
         "gitDockerfileName": "Dockerfile",
         "gitRepoUrl": "https://github.com/engenhariadevalor/engenharia-de-valor"
         }
